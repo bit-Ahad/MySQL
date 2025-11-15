@@ -1,0 +1,149 @@
+Here’s your **MySQL Character / String Functions Cheat Sheet** converted into a clear **heading-based format**:
+
+---
+
+# MySQL Character / String Functions Cheat Sheet
+
+## LCASE() / LOWER()
+
+**Definition:** Converts string characters into lowercase
+**Syntax:** `LCASE(str)` or `LOWER(str)`
+**Example:**
+
+```sql
+SELECT LCASE('HELLO');  -- 'hello'
+```
+
+---
+
+## UCASE() / UPPER()
+
+**Definition:** Converts string characters into uppercase
+**Syntax:** `UCASE(str)` or `UPPER(str)`
+**Example:**
+
+```sql
+SELECT UCASE('hello');  -- 'HELLO'
+```
+
+---
+
+## INITCAP()
+
+**Definition:** Capitalizes first letter of each word
+**Syntax:** `INITCAP(str)` *(via custom function)*
+**Example:**
+
+```sql
+SELECT CONCAT(UPPER(LEFT('hello world',1)), LOWER(SUBSTRING('hello world',2)));  -- 'Hello world'
+```
+
+**Note:** MySQL does not have a built-in `INITCAP()`. It must be simulated using `UPPER() + LOWER() + SUBSTRING()`.
+
+---
+
+## CONCAT()
+
+**Definition:** Joins two or more strings together
+**Syntax:** `CONCAT(str1, str2, …)`
+**Example:**
+
+```sql
+SELECT CONCAT('My','SQL');  -- 'MySQL'
+```
+
+---
+
+## SUBSTR() / SUBSTRING()
+
+**Definition:** Extracts portion from given string
+**Syntax:**
+
+* `SUBSTR(str, start, length)`
+* `SUBSTRING(str, start, length)`
+  **Example:**
+
+```sql
+SELECT SUBSTR('abcdef',2,3);      -- 'bcd'
+SELECT SUBSTRING('Hello World',7); -- 'World'
+```
+
+---
+
+## REPLACE()
+
+**Definition:** Replaces occurrences of substring
+**Syntax:** `REPLACE(str, from_str, to_str)`
+**Example:**
+
+```sql
+SELECT REPLACE('hello world','world','MySQL');  -- 'hello MySQL'
+```
+
+---
+
+## INSTR()
+
+**Definition:** Returns position of substring found
+**Syntax:** `INSTR(str, substr)`
+**Example:**
+
+```sql
+SELECT INSTR('hello','lo');                 -- 4
+SELECT INSTR('MySQL Database','SQL');       -- 3
+```
+
+---
+
+## LENGTH()
+
+**Definition:** Returns string length in bytes only
+**Syntax:** `LENGTH(str)`
+**Example:**
+
+```sql
+SELECT LENGTH('Hello');  -- 5
+```
+
+---
+
+## LPAD()
+
+**Definition:** Adds padding to left of string
+**Syntax:** `LPAD(str, len, padstr)`
+**Example:**
+
+```sql
+SELECT LPAD('123',5,'0');  -- '00123'
+```
+
+---
+
+## RPAD()
+
+**Definition:** Adds padding to right of string
+**Syntax:** `RPAD(str, len, padstr)`
+**Example:**
+
+```sql
+SELECT RPAD('abc',5,'.');  -- 'abc..'
+```
+
+---
+
+## TRIM()
+
+**Definition:** Removes spaces or specified characters
+**Syntax:**
+
+```sql
+TRIM([[LEADING | TRAILING | BOTH] [remstr] FROM] str)
+```
+
+**Example:**
+
+```sql
+SELECT TRIM('   hello   ');  -- 'hello'
+```
+
+---

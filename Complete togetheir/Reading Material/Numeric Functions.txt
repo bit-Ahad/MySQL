@@ -1,0 +1,62 @@
+### 1. **`ABS()`** – Absolute Value
+
+Returns the absolute value of a number (i.e., removes the negative sign if present).
+
+```sql
+SELECT ABS(-10);  -- Result: 10
+SELECT ABS(5);    -- Result: 5
+```
+
+---
+
+### 2. **`ROUND()`** – Round to Nearest
+
+Rounds a number to a specified number of decimal places.
+
+```sql
+SELECT ROUND(123.456);      -- Result: 123
+SELECT ROUND(123.456, 2);   -- Result: 123.46
+SELECT ROUND(123.454, 2);   -- Result: 123.45
+```
+
+* If the second parameter is omitted, it rounds to the nearest integer.
+* Can also round to negative digits:
+
+```sql
+SELECT ROUND(123.456, -1);  -- Result: 120
+```
+
+---
+
+### 3. **`CEIL()` / `CEILING()`** – Ceiling Value
+
+Returns the smallest integer greater than or equal to the number.
+
+```sql
+SELECT CEIL(12.3);    -- Result: 13
+SELECT CEIL(-12.3);   -- Result: -12
+```
+
+---
+
+### 4. **`FLOOR()`** – Floor Value
+
+Returns the largest integer less than or equal to the number.
+
+```sql
+SELECT FLOOR(12.7);   -- Result: 12
+SELECT FLOOR(-12.7);  -- Result: -13
+```
+
+---
+
+### 5. **`MOD()`** – Modulo (Remainder)
+
+Returns the remainder of a division.
+
+```sql
+SELECT MOD(10, 3);    -- Result: 1  (10 ÷ 3 leaves remainder 1)
+SELECT MOD(10, -3);   -- Result: 1
+SELECT MOD(-10, 3);   -- Result: -1
+```
+

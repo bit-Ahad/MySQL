@@ -1,0 +1,182 @@
+### 🕒 1️⃣ **CURRENT_DATE / CURDATE()**
+
+👉 Get today’s date.
+
+```sql
+SELECT CURRENT_DATE;
+```
+
+**Example result:** `2025-11-09`
+
+Excellent question! 🎯
+
+In MySQL, you can easily extract the **day**, **month**, and **year** separately from any date — including `CURRENT_DATE()` or any column — using the **`DAY()`, `MONTH()`, and `YEAR()`** functions.
+
+Let’s go step-by-step 👇
+
+---
+
+## 🗓️ **1️⃣ Get the Year Only**
+
+```sql
+SELECT YEAR(CURRENT_DATE()) AS year_only;
+```
+
+**Result:** `2025`
+
+---
+
+## 📅 **2️⃣ Get the Month Only**
+
+```sql
+SELECT MONTH(CURRENT_DATE()) AS month_only;
+```
+
+**Result:** `11`
+
+---
+
+## 📆 **3️⃣ Get the Day Only**
+
+```sql
+SELECT DAY(CURRENT_DATE()) AS day_only;
+```
+
+**Result:** `9`
+
+
+---
+
+### 🕐 2️⃣ **CURRENT_TIME / CURTIME()**
+
+👉 Get the current time (hours, minutes, seconds).
+
+```sql
+SELECT CURRENT_TIME;
+```
+
+**Example result:** `14:25:30`
+
+---
+
+### 📅 3️⃣ **NOW()**
+
+👉 Get both the **current date and time** together.
+
+```sql
+SELECT NOW();
+```
+
+**Example result:** `2025-11-09 14:25:30`
+
+---
+
+### 🗓️ 4️⃣ **DATEDIFF(date1, date2)**
+
+👉 Find how many **days** are between two dates.
+
+```sql
+SELECT DATEDIFF('2025-11-09', '2025-11-01');
+```
+
+**Result:** `8`
+
+---
+
+### 🧮 5️⃣ **DATE_ADD(date, INTERVAL n unit)**
+
+👉 Add time to a date (days, months, years, etc.).
+
+```sql
+SELECT DATE_ADD('2025-11-09', INTERVAL 10 DAY);
+SELECT DATE_ADD('2025-11-09', INTERVAL 2 MONTH);
+```
+
+**Result:** Adds 10 days or 2 months.
+
+---
+
+### ⏪ 6️⃣ **DATE_SUB(date, INTERVAL n unit)**
+
+👉 Subtract time from a date.
+
+```sql
+SELECT DATE_SUB('2025-11-09', INTERVAL 15 DAY);
+```
+
+**Result:** `2025-10-25`
+
+---
+
+### 🗓️ 7️⃣ **LAST_DAY(date)**
+
+👉 Gives the **last day of the month** for a given date.
+
+```sql
+SELECT LAST_DAY('2025-11-09');
+```
+
+**Result:** `2025-11-30`
+
+---
+
+### 🕓 8️⃣ **EXTRACT(part FROM date)**
+
+👉 Extract parts of a date (like year, month, day).
+
+```sql
+SELECT EXTRACT(YEAR FROM '2025-11-09') AS year_part;
+SELECT EXTRACT(MONTH FROM '2025-11-09') AS month_part;
+SELECT EXTRACT(DAY FROM '2025-11-09') AS day_part;
+```
+
+**Result:** `2025`, `11`, and `09`
+
+---
+
+### 🔄 9️⃣ **DATE_FORMAT(date, format)**
+
+👉 Change how a date looks (custom formatting).
+
+```sql
+SELECT DATE_FORMAT('2025-11-09', '%d-%M-%Y') AS formatted_date;
+```
+
+**Result:** `09-November-2025`
+
+---
+
+### ⏱️ 1️⃣0️⃣ **TIMESTAMPDIFF(unit, date1, date2)**
+
+👉 Difference between two dates in different units (days, months, years).
+
+```sql
+SELECT TIMESTAMPDIFF(MONTH, '2025-01-01', '2025-11-09') AS months_diff;
+SELECT TIMESTAMPDIFF(YEAR, '2020-01-01', '2025-11-09') AS years_diff;
+```
+
+**Result:** `10` months, `5` years
+
+---
+
+### Bonus (for later 🧠)
+
+* `MONTHNAME(date)` → gives month name (`November`)
+* `DAYNAME(date)` → gives weekday name (`Sunday`)
+* `DAYOFWEEK(date)` → gives number for weekday (1=Sunday)
+* `CURTIME()` → current time only
+
+---
+
+
+| Function       | Purpose             |
+| -------------- | ------------------- |
+| `NOW()`        | Current date & time |
+| `CURRENT_DATE` | Today’s date        |
+| `DATEDIFF()`   | Days between dates  |
+| `DATE_ADD()`   | Add time            |
+| `DATE_SUB()`   | Subtract time       |
+| `LAST_DAY()`   | End of month        |
+| `EXTRACT()`    | Get part of a date  |
+
+

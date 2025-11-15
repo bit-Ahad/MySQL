@@ -1,0 +1,113 @@
+# ✅ **Query**
+
+A **query** is just a command to get data.
+
+### Example:
+
+```sql
+SELECT * FROM employees;
+```
+
+---
+
+# ✅ **Subquery**
+
+A **subquery** is a **query inside another query**.
+
+---
+
+### 🔹 **1. Subquery in WHERE**
+
+```sql
+SELECT name
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary) FROM employees
+);
+```
+
+---
+
+### 🔹 **2. Subquery with IN**
+
+```sql
+SELECT name
+FROM students
+WHERE class_id IN (
+    SELECT class_id FROM classes WHERE teacher = 'John'
+);
+```
+
+---
+
+### 🔹 **3. Subquery in SELECT**
+
+```sql
+SELECT name,
+       (SELECT COUNT(*) FROM orders WHERE customer_id = c.id) AS total_orders
+FROM customers c;
+```
+
+---
+
+DIFFERENCE BETWEEN CORRELATED AND NON-CORELATED SUBQUREYS :
+
+---
+
+# ✅ **Non-correlated Subquery (independent)**
+
+The inner query works *alone*.
+
+### Example:
+
+```sql
+SELECT name
+FROM students
+WHERE marks > (
+    SELECT AVG(marks) FROM students
+);
+```
+
+* The subquery `SELECT AVG(marks)` runs by itself.
+* It does **not** need anything from the outer query.
+
+---
+
+# ✅ **Correlated Subquery (depends on outer query)**
+
+The inner query needs data from the *current row* of the outer query.
+
+### Example:
+
+```sql
+SELECT name
+FROM students s
+WHERE marks > (
+    SELECT AVG(marks)
+    FROM students
+    WHERE class = s.class
+);
+```
+
+* The subquery uses `s.class` → depends on each student’s class.
+* It **cannot** run alone.
+
+---
+
+# 🎯 Super Short Difference
+
+* **Non-correlated:** Inner query does NOT use outer table.
+* **Correlated:** Inner query USES outer table.
+
+
+------------------------
+-- Using 2 table 1 named students and 1 named inner_student 
+
+-- SELECT students.name
+-- FROM students
+-- WHERE students.marks > (
+--     SELECT AVG(inner_students.marks)
+--     FROM students AS inner_students
+--     WHERE inner_students.class = students.class
+-- );
+------------------------

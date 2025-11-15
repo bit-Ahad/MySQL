@@ -1,0 +1,71 @@
+### 1. **`COUNT()`** – Count Rows
+
+Returns the number of rows in a table or number of non-NULL values in a column.
+
+```sql
+-- Count all rows
+SELECT COUNT(*) FROM employees;
+
+-- Count non-NULL values in a column
+SELECT COUNT(salary) FROM employees;
+```
+
+---
+
+### 2. **`SUM()`** – Sum of Values
+
+Returns the total sum of a numeric column.
+
+```sql
+SELECT SUM(salary) AS total_salary FROM employees;
+```
+
+---
+
+### 3. **`AVG()`** – Average
+
+Returns the average value of a numeric column.
+
+```sql
+SELECT AVG(salary) AS avg_salary FROM employees;
+```
+
+---
+
+### 4. **`MIN()`** – Minimum Value
+
+Returns the smallest value in a column.
+
+```sql
+SELECT MIN(salary) AS min_salary FROM employees;
+```
+
+---
+
+### 5. **`MAX()`** – Maximum Value
+
+Returns the largest value in a column.
+
+```sql
+SELECT MAX(salary) AS max_salary FROM employees;
+```
+
+---
+
+### ✅ Combined Example
+
+Suppose we have a table `employees` with a `salary` column:
+
+```sql
+SELECT 
+    COUNT(*) AS total_employees,
+    SUM(salary) AS total_salary,
+    AVG(salary) AS average_salary,
+    MIN(salary) AS min_salary,
+    MAX(salary) AS max_salary
+FROM employees;
+```
+
+This will give you **all five aggregate results in a single row**.
+
+

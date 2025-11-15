@@ -1,0 +1,90 @@
+
+## 🧩 SQL Command Categories
+
+SQL commands are grouped into 5 main types:
+
+| Category | Full Form                    | Purpose                                   |
+| -------- | ---------------------------- | ----------------------------------------- |
+| **DDL**  | Data Definition Language     | Defines the structure (tables, databases) |
+| **DML**  | Data Manipulation Language   | Manages the data inside tables            |
+| **DCL**  | Data Control Language        | Controls user access/permissions          |
+| **TCL**  | Transaction Control Language | Manages transactions (commit/rollback)    |
+| **DQL**  | Data Query Language          | Retrieves data (usually `SELECT`)         |
+
+---
+
+## 🏗️ 1. DDL — *Data Definition Language*
+
+**Used to define or change the database structure.**
+
+➡️ Affects the schema, not the data.
+➡️ Automatically commits (no rollback).
+
+### ✳️ Common DDL Commands:
+
+| Command    | Description                        | Example                                          |
+| ---------- | ---------------------------------- | ------------------------------------------------ |
+| `CREATE`   | Create database or table           | `CREATE TABLE users (id INT, name VARCHAR(50));` |
+| `ALTER`    | Modify existing table              | `ALTER TABLE users ADD COLUMN age INT;`          |
+| `DROP`     | Delete table or database           | `DROP TABLE users;`                              |
+| `TRUNCATE` | Delete all data but keep structure | `TRUNCATE TABLE users;`                          |
+| `RENAME`   | Rename table                       | `RENAME TABLE users TO members;`                 |
+
+---
+
+## 🧮 2. DML — *Data Manipulation Language*
+
+**Used to manipulate the data inside tables.**
+
+➡️ Works with rows and columns inside the structure.
+➡️ Needs `COMMIT` to make changes permanent (if autocommit = off).
+
+### ✳️ Common DML Commands:
+
+| Command  | Description | Example                                    |
+| -------- | ----------- | ------------------------------------------ |
+| `INSERT` | Add data    | `INSERT INTO users VALUES (1, 'John');`    |
+| `UPDATE` | Change data | `UPDATE users SET name='Alex' WHERE id=1;` |
+| `DELETE` | Remove data | `DELETE FROM users WHERE id=1;`            |
+
+---
+
+## 🧠 3. TCL — *Transaction Control Language*
+
+**Used to control transactions** — groups of DML operations.
+
+➡️ Ensures data integrity (all or nothing).
+
+### ✳️ Common TCL Commands:
+
+| Command             | Description                             | Example                       |
+| ------------------- | --------------------------------------- | ----------------------------- |
+| `COMMIT`            | Save all changes                        | `COMMIT;`                     |
+| `ROLLBACK`          | Undo uncommitted changes                | `ROLLBACK;`                   |
+| `SAVEPOINT`         | Create a temporary point to rollback to | `SAVEPOINT sp1;`              |
+| `RELEASE SAVEPOINT` | Remove a savepoint                      | `RELEASE SAVEPOINT sp1;`      |
+| `SET TRANSACTION`   | Define transaction properties           | `SET TRANSACTION READ WRITE;` |
+
+---
+
+## 🔍 4. DQL — *Data Query Language*
+
+**Used to retrieve data from tables.**
+
+| Command  | Description | Example                |
+| -------- | ----------- | ---------------------- |
+| `SELECT` | Get data    | `SELECT * FROM users;` |
+
+---
+
+## 💡 Quick Summary Table
+
+| Type    | Full Form                    | Purpose              | Example                      |
+| ------- | ---------------------------- | -------------------- | ---------------------------- |
+| **DDL** | Data Definition Language     | Defines structure    | `CREATE TABLE`               |
+| **DML** | Data Manipulation Language   | Modifies data        | `INSERT`, `UPDATE`, `DELETE` |
+| **DCL** | Data Control Language        | Manages access       | `GRANT`, `REVOKE`            |
+| **TCL** | Transaction Control Language | Manages transactions | `COMMIT`, `ROLLBACK`         |
+| **DQL** | Data Query Language          | Retrieves data       | `SELECT`                     |
+
+---
